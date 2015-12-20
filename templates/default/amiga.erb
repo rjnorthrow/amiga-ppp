@@ -6,20 +6,20 @@
 #   egrep -v '#|^ *$' /etc/ppp/peers/amiga
 
 # Serial device
-<%= node[:serial_device] %>
+<%= node['serial_device'] %>
 
 # Speed of the serial line, this is probably maximum unless you have a serial
 # board
-<%= node[:serial_speed] %>
+<%= node['serial_speed'] %>
 
 # Specify which DNS Servers the incoming Win95 or WinNT Connection should use
 # Two Servers can be remotely configured
-<% node[:ms_dns].each do |d| -%>
+<% node['ms_dns'].each do |d| -%>
 ms-dns <%= d %>
 <% end -%>
 
 # Specify which WINS Servers the incoming connection Win95 or WinNT should use
-<% node[:ms_wins].each do |w| -%>
+<% node['ms_wins'].each do |w| -%>
 ms-wins <%= w %>
 <% end -%>
 
@@ -31,11 +31,11 @@ noauth
 local
 
 # Local and remote IP addresses
-<%= node[:pi_ip] %>:<%= node[:amiga_ip] %>
+<%= node['pi_ip'] %>:<%= node['amiga_ip'] %>
 
 # Set the interface netmask to <n>, a 32 bit netmask in "decimal dot"
 # notation (e.g. 255.255.255.0).
-netmask <%= node[:netmask] %>
+netmask <%= node['netmask'] %>
 
 # Enables the "passive" option in the LCP.  With this option, pppd will
 # attempt to initiate a connection; if no reply is received from the
